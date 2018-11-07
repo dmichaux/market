@@ -73,10 +73,20 @@ WSGI_APPLICATION = 'market.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 
+db_name = ''
+db_user = ''
+db_pass = ''
+if ENV_ROLE == 'development':
+    db_name = 'django_db'
+    db_user = 'django_user'
+    db_pass = os.environ.get('DJANGO_PG_PASS', '')
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': db_name,
+        'USER': db_user,
+        'PASSWORD': db_pass
     }
 }
 
