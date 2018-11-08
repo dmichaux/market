@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'marketapp.apps.MarketappConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -73,22 +74,15 @@ WSGI_APPLICATION = 'market.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 
-environment = os.environ.get('ENVIRONMENT', '')
-db_name = ''
-db_user = ''
-db_pass = ''
-if environment == 'development':
-    db_name = 'django_db'
-    db_user = 'django_user'
-    db_pass = os.environ.get('DJANGO_PG_PASS', '')
+db_pass = os.environ.get('DJANGO_PG_PASS', '')
 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': db_name,
-        'USER': db_user,
+        'NAME': 'django_db',
+        'USER': 'django_user',
         'PASSWORD': db_pass,
-        'HOST': '',
+        'HOST': 'localhost',
     }
 }
 
