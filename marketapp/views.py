@@ -22,4 +22,4 @@ def user_page(request, user_id):
   # User info, messages, listed items, favorited items?
   user = get_object_or_404(User, pk = user_id)
   context = {'user': user}
-  return render(request, 'users/detail.html', context)
+  return render(request, 'users/user_page.html', context)
