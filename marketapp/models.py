@@ -22,13 +22,20 @@ class User(models.Model):
       rate = (self.success_count / transactions) * 100
     return rate
 
+class Category(models.Model):
+  name = models.CharField(max_length = 50)
+
+  def __str__(self):
+    return self.name
+
 class Item(models.Model):
-  seller = models.ForeignKey(User, on_delete = models.CASCADE,
-                                   related_name = "items")
+  category = models.ForeignKey(Category, on_delete = models.CASCADE,
+                                         related_name = "items")
+  seller   = models.ForeignKey(User, on_delete = models.CASCADE,
+                                     related_name = "items")
   name   = models.CharField(max_length = 100)
   price  = models.PositiveIntegerField(default = 20)
   baught = models.BooleanField(default = False)
-  category    = models.CharField(max_length = 50)
   description = models.CharField(max_length = 150)
   list_date   = models.DateTimeField()
 
