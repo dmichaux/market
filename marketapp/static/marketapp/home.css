@@ -1,0 +1,129 @@
+/* === Global === */
+
+body {
+  margin: 0;
+}
+
+/* === Header === */
+
+.banner {
+  display: grid;
+  grid-template-columns: 1fr 1fr 3fr 3fr 1fr;
+  grid-column-gap: 10px;
+  grid-template-areas:
+    '. logo tagline';
+}
+
+.logo {
+  grid-area: logo;
+  place-self: center end;
+  margin: 15px 0;
+  color: firebrick;
+  font-size: 2.5em;
+}
+
+.tagline {
+  grid-area: tagline;
+  align-self: center;
+  font-size: 1.2em;
+}
+
+.utility-bar {
+  display: grid;
+  grid-template: repeat(3, 1fr) / 3fr 1fr;
+  grid-gap: 5px;
+  grid-template-areas:
+    'search signin'
+    'search signin'
+    'seeall signin';
+  background-color: #232f2e;
+}
+
+.search {
+  grid-area: search;
+  align-self: end;
+  height: 60%;
+  width: 80%;
+  margin: 0 auto;
+  border: 1px lightgray solid;
+  border-radius: 5px;
+}
+
+.see-all {
+  grid-area: seeall;
+  place-self: start center;
+  color: darkgray;
+  padding: 5px;
+  text-decoration: none;
+}
+
+.sign-in {
+  grid-area: signin;
+  place-self: center;
+  display: grid;
+  grid-template: 1fr 1fr / repeat(3, 1fr);
+  grid-gap: 5px;
+}
+
+.sign-text {
+  grid-column: span 2;
+  border: 1px lightgray solid;
+  border-radius: 3px;
+}
+
+/* .sign-btn {} */
+
+/* === Main === */
+
+main {
+  display: grid;
+  grid-template: auto / repeat(3, 1fr);
+  grid-row-gap: 20px;
+  width: 97%;
+  margin: 0 auto;
+  background-color: lightblue;
+}
+
+.featured-heading {
+  grid-column: span 3;
+  place-self: center;
+  font-size: 1.7em;
+}
+
+.featured-cell {
+  width: 90%;
+  place-self: center;
+  display: grid;
+  grid-template-rows: 1fr 4fr 2fr;
+  /* padding: 15px 30px; */
+  background-color: white;
+}
+
+.featured-category {
+  margin: 0;
+  place-self: center;
+  font-size: 1.5em;
+}
+
+.featured-image {
+  height: 220px;
+  width: 280px;
+  place-self: center;
+  background-color: darkgreen;
+}
+
+.featured-list {
+  place-self: center;
+  list-style: none;
+  padding: 0;
+}
+
+.featured-item {
+  margin-bottom: 8px;
+}
+
+.featured-price {
+  margin-right: 5px;
+  font-weight: bold;
+  font-size: 1.2em;
+}

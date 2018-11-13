@@ -1,31 +1,108 @@
+{% load static %}
+
+<link rel='stylesheet' type='text/css' href={% static 'marketapp/home.css' %}>
+
 <header>
   <section class='banner'>
     <h1 class='logo'>Marketeer</h1>
     <h2 class='tagline'>where trash becomes treasure</h2>
   </section>
   <section class='utility-bar'>
-    <input class='search' type='text' placeholder='search here'>
+    <input class='search' type='text' placeholder='   search here'>
     <a class='see-all' href={% url 'marketapp:index' %}>see all</a>
     <div class='sign-in'>
-      <button type='button'>sign-in or sign-out</button>
-      <button type='button'>sign-up or my page link</button>
+      <input class='sign-text' type='text' placeholder=' sign in/out'>
+      <button class='sign-btn' type='button'>sign in/out</button>
+      <input class='sign-text' type='text' placeholder=' sign up or me'>
+      <button class='sign-btn' type='button'>sign-up or me</button>
     </div>
   </section>
 </header>
+
 <main>
-  <h3>Featured Items</h3>
-  <div class='featured'>
-    -category name-
-    <ul>
-      <li>item here</li>
-      <li>item here</li>
+  <h3 class='featured-heading'>Featured Items</h3>
+  <div class='featured-cell'>
+    <h4 class='featured-category'>-category name-</h4>
+    <img class='featured-image'>
+    <ul class='featured-list'>
+      <li class='featured-item'>
+        <span class='featured-price'>$$</span>
+        <a class='featured-link' href='#'>item name</a>
+      </li>
+      <li class='featured-item'>
+        <span class='featured-price'>$$</span>
+        <a  class='featured-link' href='#'>item name</a>
+      </li>
     </ul>
-  <div>
-  <div class='featured'>
-    -category name-
-    <ul>
-      <li>item here</li>
-      <li>item here</li>
+  </div>
+  <div class='featured-cell'>
+    <h4 class='featured-category'>-category name-</h4>
+    <img class='featured-image'>
+    <ul class='featured-list'>
+      <li class='featured-item'>
+        <span class='featured-price'>$$</span>
+        <a class='featured-link' href='#'>item name</a>
+      </li>
+      <li class='featured-item'>
+        <span class='featured-price'>$$</span>
+        <a  class='featured-link' href='#'>item name</a>
+      </li>
     </ul>
-  <div>
+  </div>
+  <div class='featured-cell'>
+    <h4 class='featured-category'>-category name-</h4>
+    <img class='featured-image'>
+    <ul class='featured-list'>
+      <li class='featured-item'>
+        <span class='featured-price'>$$</span>
+        <a class='featured-link' href='#'>item name</a>
+      </li>
+      <li class='featured-item'>
+        <span class='featured-price'>$$</span>
+        <a  class='featured-link' href='#'>item name</a>
+      </li>
+    </ul>
+  </div>
+  <div class='featured-cell'>
+    <h4 class='featured-category'>-category name-</h4>
+    <img class='featured-image'>
+    <ul class='featured-list'>
+      <li class='featured-item'>
+        <span class='featured-price'>$$</span>
+        <a class='featured-link' href='#'>item name</a>
+      </li>
+      <li class='featured-item'>
+        <span class='featured-price'>$$</span>
+        <a  class='featured-link' href='#'>item name</a>
+      </li>
+    </ul>
+  </div>
+  <div class='featured-cell'>
+    <h4 class='featured-category'>-category name-</h4>
+    <img class='featured-image'>
+    <ul class='featured-list'>
+      <li class='featured-item'>
+        <span class='featured-price'>$$</span>
+        <a class='featured-link' href='#'>item name</a>
+      </li>
+      <li class='featured-item'>
+        <span class='featured-price'>$$</span>
+        <a  class='featured-link' href='#'>item name</a>
+      </li>
+    </ul>
+  </div>
+  <div class='featured-cell'>
+    <h4 class='featured-category'>-category name-</h4>
+    <img class='featured-image'>
+    <ul class='featured-list'>
+      <li class='featured-item'>
+        <span class='featured-price'>$$</span>
+        <a class='featured-link' href='#'>item name</a>
+      </li>
+      <li class='featured-item'>
+        <span class='featured-price'>$$</span>
+        <a  class='featured-link' href='#'>item name</a>
+      </li>
+    </ul>
+  </div>
 </main>
