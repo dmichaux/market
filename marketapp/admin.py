@@ -1,8 +1,9 @@
 from django.contrib import admin
-from .models import User, Item, Message
+from .models import User, Category, Item, Message
 
 admin_models = [
   User,
+  Category,
   Item,
   Message
 ]
