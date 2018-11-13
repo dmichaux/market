@@ -1,1 +1,31 @@
-<h1>Home Page will go here ...</h1>
+<header>
+  <section class='banner'>
+    <h1 class='logo'>Marketeer</h1>
+    <h2 class='tagline'>where trash becomes treasure</h2>
+  </section>
+  <section class='utility-bar'>
+    <input class='search' type='text' placeholder='search here'>
+    <a class='see-all' href={% url 'marketapp:index' %}>see all</a>
+    <div class='sign-in'>
+      <button type='button'>sign-in or sign-out</button>
+      <button type='button'>sign-up or my page link</button>
+    </div>
+  </section>
+</header>
+<main>
+  <h3>Featured Items</h3>
+  <div class='featured'>
+    -category name-
+    <ul>
+      <li>item here</li>
+      <li>item here</li>
+    </ul>
+  <div>
+  <div class='featured'>
+    -category name-
+    <ul>
+      <li>item here</li>
+      <li>item here</li>
+    </ul>
+  <div>
+</main>

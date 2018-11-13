@@ -1,1 +1,11 @@
-<h1>Items list will go here ...</h1>
+<h1>Items Index</h1>
+
+{% if master_list %}
+  <ul>
+    {% for item in master_list %}
+      <li>
+        {{ item.name }} was listed on {{ item.list_date }}</br>
+      </li>
+    {% endfor %}
+  </ul>
+{% endif %}
