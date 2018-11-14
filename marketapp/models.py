@@ -24,6 +24,8 @@ class User(models.Model):
 
 class Category(models.Model):
   name = models.CharField(max_length = 50)
+  img_url = models.URLField(max_length = 200,
+    default = 'https://images.pexels.com/photos/210557/pexels-photo-210557.jpeg?cs=srgb&dl=buildings-business-city-210557.jpg&fm=jpg')
 
   def __str__(self):
     return self.name
