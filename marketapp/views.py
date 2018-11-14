@@ -1,10 +1,20 @@
 from django.shortcuts import render, get_object_or_404
+import random
 
-from .models import User, Item
+from .models import User, Category, Item
 
 def home(request):
-  # Home page with sign-up/in, my page link, search form featured items
-  return render(request, './home.html')
+  # Home page with sign-up/in, my page link, search form, featured items
+  categorized_items = []
+  categories = random.sample(set(Category.objects.all()), 6)
+  for category in categories:
+    items = random.sample(set(category.items.all()), 2)
+    details = { 'category': category.name,
+                'img_url': category.img_url,
+                'items': items}
+    categorized_items.append(details)
+  context = {'categorized_items': categorized_items}
+  return render(request, './home.html', context)
 
 def index(request):
   # List, search, filter(price, category, list_date, etc.)

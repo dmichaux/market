@@ -21,88 +21,19 @@
 
 <main>
   <h3 class='featured-heading'>Featured Items</h3>
-  <div class='featured-cell'>
-    <h4 class='featured-category'>-category name-</h4>
-    <img class='featured-image'>
-    <ul class='featured-list'>
-      <li class='featured-item'>
-        <span class='featured-price'>$$</span>
-        <a class='featured-link' href='#'>item name</a>
-      </li>
-      <li class='featured-item'>
-        <span class='featured-price'>$$</span>
-        <a  class='featured-link' href='#'>item name</a>
-      </li>
-    </ul>
-  </div>
-  <div class='featured-cell'>
-    <h4 class='featured-category'>-category name-</h4>
-    <img class='featured-image'>
-    <ul class='featured-list'>
-      <li class='featured-item'>
-        <span class='featured-price'>$$</span>
-        <a class='featured-link' href='#'>item name</a>
-      </li>
-      <li class='featured-item'>
-        <span class='featured-price'>$$</span>
-        <a  class='featured-link' href='#'>item name</a>
-      </li>
-    </ul>
-  </div>
-  <div class='featured-cell'>
-    <h4 class='featured-category'>-category name-</h4>
-    <img class='featured-image'>
-    <ul class='featured-list'>
-      <li class='featured-item'>
-        <span class='featured-price'>$$</span>
-        <a class='featured-link' href='#'>item name</a>
-      </li>
-      <li class='featured-item'>
-        <span class='featured-price'>$$</span>
-        <a  class='featured-link' href='#'>item name</a>
-      </li>
-    </ul>
-  </div>
-  <div class='featured-cell'>
-    <h4 class='featured-category'>-category name-</h4>
-    <img class='featured-image'>
-    <ul class='featured-list'>
-      <li class='featured-item'>
-        <span class='featured-price'>$$</span>
-        <a class='featured-link' href='#'>item name</a>
-      </li>
-      <li class='featured-item'>
-        <span class='featured-price'>$$</span>
-        <a  class='featured-link' href='#'>item name</a>
-      </li>
-    </ul>
-  </div>
-  <div class='featured-cell'>
-    <h4 class='featured-category'>-category name-</h4>
-    <img class='featured-image'>
-    <ul class='featured-list'>
-      <li class='featured-item'>
-        <span class='featured-price'>$$</span>
-        <a class='featured-link' href='#'>item name</a>
-      </li>
-      <li class='featured-item'>
-        <span class='featured-price'>$$</span>
-        <a  class='featured-link' href='#'>item name</a>
-      </li>
-    </ul>
-  </div>
-  <div class='featured-cell'>
-    <h4 class='featured-category'>-category name-</h4>
-    <img class='featured-image'>
-    <ul class='featured-list'>
-      <li class='featured-item'>
-        <span class='featured-price'>$$</span>
-        <a class='featured-link' href='#'>item name</a>
-      </li>
-      <li class='featured-item'>
-        <span class='featured-price'>$$</span>
-        <a  class='featured-link' href='#'>item name</a>
-      </li>
-    </ul>
-  </div>
+
+  {% for details in categorized_items %}
+    <div class='featured-cell'>
+      <h4 class='featured-category'>{{details.category}}</h4>
+      <img class='featured-image' src={{details.img_url}} alt={{details.category}}>
+      <ul class='featured-list'>
+        {% for item in details.items %}
+          <li class='featured-item'>
+            <span class='featured-price'>${{item.price}}</span>
+            <a class='featured-link' href={% url 'marketapp:detail' item.id %}>{{item.name}}</a>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+  {% endfor %}
 </main>
