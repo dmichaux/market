@@ -25,7 +25,8 @@
   {% for details in categorized_items %}
     <div class='featured-cell'>
       <h4 class='featured-category'>{{details.category}}</h4>
-      <img class='featured-image' src={{details.img_url}} alt={{details.category}}>
+      <img class='featured-image' src='../static/marketapp/images/{{details.category}}.jpg'
+                                  alt={{details.category}}>
       <ul class='featured-list'>
         {% for item in details.items %}
           <li class='featured-item'>

@@ -9,9 +9,8 @@ def home(request):
   categories = random.sample(set(Category.objects.all()), 6)
   for category in categories:
     items = random.sample(set(category.items.all()), 2)
-    details = { 'category': category.name,
-                'img_url': category.img_url,
-                'items': items}
+    details = {'category': category.name,
+               'items': items}
     categorized_items.append(details)
   context = {'categorized_items': categorized_items}
   return render(request, './home.html', context)
