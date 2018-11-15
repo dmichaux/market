@@ -70,3 +70,10 @@ body {
     border: 1px lightgray solid;
     border-radius: 3px;
 }
+
+/* === Main === */
+
+main {
+    padding: 0 2%;
+    background-color: lightblue;
+}
