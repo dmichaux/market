@@ -3,38 +3,40 @@
 <link rel='stylesheet' type='text/css' href={% static 'marketapp/home.css' %}>
 
 <header>
-  <section class='banner'>
-    <h1 class='logo'>Marketeer</h1>
-    <h2 class='tagline'>where trash becomes treasure</h2>
-  </section>
-  <section class='utility-bar'>
-    <input class='search' type='text' placeholder='   search here'>
-    <a class='see-all' href={% url 'marketapp:index' %}>see all</a>
-    <div class='sign-in'>
-      <input class='sign-text' type='text' placeholder=' sign in/out'>
-      <button class='sign-btn' type='button'>sign in/out</button>
-      <input class='sign-text' type='text' placeholder=' sign up or me'>
-      <button class='sign-btn' type='button'>sign-up or me</button>
-    </div>
-  </section>
+    <section class='banner'>
+        <h1 class='logo'>Marketeer</h1>
+        <h2 class='tagline'>where trash becomes treasure</h2>
+    </section>
+    <section class='utility-bar'>
+        <input class='search' type='text' placeholder='   search here'>
+        <a class='see-all' href={% url 'marketapp:index' %}>see all</a>
+        <div class='sign-in'>
+            <input class='sign-text' type='text' placeholder=' sign in/out'>
+            <button class='sign-btn' type='button'>sign in/out</button>
+            <input class='sign-text' type='text' placeholder=' sign up or me'>
+            <button class='sign-btn' type='button'>sign-up or me</button>
+        </div>
+    </section>
 </header>
 
 <main>
-  <h3 class='featured-heading'>Featured Items</h3>
+    <h3 class='featured-heading'>Featured Items</h3>
 
-  {% for details in categorized_items %}
-    <div class='featured-cell'>
-      <h4 class='featured-category'>{{details.category}}</h4>
-      <img class='featured-image' src='../static/marketapp/images/{{details.category}}.jpg'
-                                  alt={{details.category}}>
-      <ul class='featured-list'>
-        {% for item in details.items %}
-          <li class='featured-item'>
-            <span class='featured-price'>${{item.price}}</span>
-            <a class='featured-link' href={% url 'marketapp:detail' item.id %}>{{item.name}}</a>
-          </li>
-        {% endfor %}
-      </ul>
-    </div>
-  {% endfor %}
+    {% for details in categorized_items %}
+        <div class='featured-cell'>
+            <h4 class='featured-category'>{{details.category}}</h4>
+            <img class='featured-image' src='../static/marketapp/images/{{details.category}}.jpg'
+                                        alt={{details.category}}>
+            <ul class='featured-list'>
+                {% for item in details.items %}
+                    <li class='featured-item'>
+                        <span class='featured-price'>${{item.price}}</span>
+                        <a class='featured-link' href={% url 'marketapp:detail' item.id %}>
+                            {{item.name}}
+                        </a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    {% endfor %}
 </main>
