@@ -11,12 +11,16 @@ body {
     grid-template-columns: 1fr 1fr 3fr 3fr 1fr;
     grid-column-gap: 10px;
     grid-template-areas:
-        '. logo tagline';
+        '. logo-link tagline';
+}
+
+.logo-link {
+    grid-area: logo-link;
+    place-self: center end;
+    text-decoration: none;
 }
 
 .logo {
-    grid-area: logo;
-    place-self: center end;
     margin: 15px 0;
     color: firebrick;
     font-size: 2.5em;
