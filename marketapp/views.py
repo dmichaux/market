@@ -1,5 +1,6 @@
 import random
 from django.shortcuts import render, get_object_or_404
+from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 
 from .models import User, Category, Item
 
@@ -18,7 +19,10 @@ def home(request):
 def index(request):
     # List, search, filter(price, category, list_date, etc.)
     master_list = Item.objects.all()
-    context = {'master_list': master_list}
+    paginator = Paginator(master_list, 20)
+    page = request.GET.get('page')
+    items = paginator.get_page(page)
+    context = {'items': items}
     return render(request, 'items/index.html', context)
 
 def detail(request, item_id):
