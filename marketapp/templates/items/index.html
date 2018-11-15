@@ -1,11 +1,20 @@
-<h1>Items Index</h1>
+{% extends '../base.html' %}
+{% load static %}
 
-{% if master_list %}
-  <ul>
-    {% for item in master_list %}
-      <li>
-        {{ item.name }} was listed on {{ item.list_date }}</br>
-      </li>
-    {% endfor %}
-  </ul>
-{% endif %}
+{% block title %}All | {% endblock title %}
+
+{% block head_css %}
+    <link rel='stylesheet' type='text/css' href={% static 'marketapp/styles/index.css' %}>
+{% endblock head_css %}
+
+{% block content %}
+    <h3>Items Index</h3>
+
+    <ul>
+        {% for item in master_list %}
+            <li>
+                {{ item.name }} was listed on {{ item.list_date }}</br>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock content %}
