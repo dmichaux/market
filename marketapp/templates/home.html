@@ -1,25 +1,11 @@
+{% extends 'base.html' %}
 {% load static %}
 
-<link rel='stylesheet' type='text/css' href={% static 'marketapp/home.css' %}>
+{% block head_css %}
+    <link rel='stylesheet' type='text/css' href={% static 'marketapp/styles/home.css' %}>
+{% endblock head_css %}
 
-<header>
-    <section class='banner'>
-        <h1 class='logo'>Marketeer</h1>
-        <h2 class='tagline'>where trash becomes treasure</h2>
-    </section>
-    <section class='utility-bar'>
-        <input class='search' type='text' placeholder='   search here'>
-        <a class='see-all' href={% url 'marketapp:index' %}>see all</a>
-        <div class='sign-in'>
-            <input class='sign-text' type='text' placeholder=' sign in/out'>
-            <button class='sign-btn' type='button'>sign in/out</button>
-            <input class='sign-text' type='text' placeholder=' sign up or me'>
-            <button class='sign-btn' type='button'>sign-up or me</button>
-        </div>
-    </section>
-</header>
-
-<main>
+{% block content %}
     <h3 class='featured-heading'>Featured Items</h3>
 
     {% for details in categorized_items %}
@@ -39,4 +25,4 @@
             </ul>
         </div>
     {% endfor %}
-</main>
+{% endblock content %}

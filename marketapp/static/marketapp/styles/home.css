@@ -1,0 +1,52 @@
+/* === Main === */
+
+main {
+    display: grid;
+    grid-template: auto / repeat(3, 1fr);
+    grid-row-gap: 20px;
+    width: 97%;
+    margin: 0 auto;
+    background-color: lightblue;
+}
+
+.featured-heading {
+    grid-column: span 3;
+    place-self: center;
+    font-size: 1.7em;
+}
+
+.featured-cell {
+    width: 90%;
+    place-self: center;
+    display: grid;
+    grid-template-rows: 1fr 4fr 2fr;
+    background-color: white;
+}
+
+.featured-category {
+    margin: 0;
+    place-self: center;
+    font-size: 1.5em;
+}
+
+.featured-image {
+    height: 220px;
+    width: 280px;
+    place-self: center;
+}
+
+.featured-list {
+    place-self: center;
+    list-style: none;
+    padding: 0;
+}
+
+.featured-item {
+    margin-bottom: 8px;
+}
+
+.featured-price {
+    margin-right: 5px;
+    font-weight: bold;
+    font-size: 1.2em;
+}
