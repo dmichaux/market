@@ -8,12 +8,19 @@
 {% endblock head_css %}
 
 {% block content %}
-    <h3>Items Index</h3>
-
-    <ul>
+    <ul class='items-list'>
+        <li class='list-head'>
+            <h4 class='list-heading list-heading-price'>Price</h4>
+            <h4 class='list-heading'>Item</h4>
+            <h4 class='list-heading'>Category</h4>
+            <h4 class='list-heading'>Listed on</h4>
+        </li>
         {% for item in items %}
-            <li>
-                {{ item.name }} was listed on {{ item.list_date }}</br>
+            <li class='listed-item'>
+                <span class='item-price'>${{item.price}}</span>
+                <span class='item-name'>{{item.name}}</span>
+                <span class='item-category'>{{item.category.name}}</span>
+                <span class='item-list-date'>{{item.list_date}}</span>
             </li>
         {% endfor %}
     </ul>
