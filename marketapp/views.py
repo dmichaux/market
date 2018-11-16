@@ -19,7 +19,7 @@ def home(request):
 def index(request):
     # List, search, filter(price, category, list_date, etc.)
     master_list = Item.objects.all()
-    paginator = Paginator(master_list, 20)
+    paginator = Paginator(master_list, 15)
     page = request.GET.get('page')
     items = paginator.get_page(page)
     context = {'items': items}
