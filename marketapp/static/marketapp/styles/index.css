@@ -2,7 +2,7 @@
 
 main {
     display: grid;
-    grid-template-rows: 1fr auto;
+    grid-template-rows: auto 1fr;
 }
 
 .items-list {
@@ -15,7 +15,7 @@ main {
 .list-head, .listed-item {
     display: grid;
     grid-template-columns: 1fr 3fr 1fr 2fr;
-    margin-bottom: 15px;
+    margin-bottom: 30px;
 }
 
 .list-head {
@@ -30,16 +30,18 @@ main {
 
 .list-heading-price {
     place-self: center end;
+    margin-right: 15px;
 }
 
 .item-price {
     place-self: center end;
+    margin-right: 15px;
     font-weight: bold;
 }
 
 .item-name {
     place-self: center start;
-    padding-left: 10px;
+    text-decoration: none;
 }
 
 .item-category {
@@ -51,3 +53,36 @@ main {
 }
 
 /* === Pagination === */
+
+.pagination {
+    place-self: center;
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-areas:
+        'previous current next';
+    margin-bottom: 30px;
+    padding: 10px 20px;
+    padding-top: 0;
+    border-bottom: 2px solid darkslategray;
+}
+
+.pagination > * {
+    place-self: center;
+}
+
+.pagination a {
+    margin: 0 5px;
+    text-decoration: none;
+}
+
+.previous {
+    grid-area: previous;
+}
+
+.current {
+    grid-area: current;
+}
+
+.next {
+    grid-area: next;
+}
