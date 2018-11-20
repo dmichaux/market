@@ -18,7 +18,7 @@ def home(request):
 
 def index(request):
     # List, search, filter(price, category, list_date, etc.)
-    master_list = Item.objects.all()
+    master_list = Item.objects.filter(baught=False)
     paginator = Paginator(master_list, 15)
     page = request.GET.get('page')
     items = paginator.get_page(page)
@@ -34,5 +34,6 @@ def detail(request, item_id):
 def user_page(request, user_id):
     # User info, messages, listed items, favorited items?
     user = get_object_or_404(User, pk=user_id)
-    context = {'user': user}
+    items = user.items.all()
+    context = {'user': user, 'items': items}
     return render(request, 'users/user_page.html', context)

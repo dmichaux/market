@@ -1,1 +1,53 @@
-<h1>Item details will go here ...</h1>
+{% extends '../base.html' %}
+{% load static %}
+
+{% block title %}Item | {% endblock title %}
+
+{% block head_css %}
+    <link rel='stylesheet' type='text/css' href={% static 'marketapp/styles/detail.css' %}>
+{% endblock head_css %}
+
+{% block content %}
+    <section class='item-messaging'>
+        <div class='message-container'>
+            <div class='message-details'>
+                <span class='message-recipient'>To: {{item.seller.name}}</span><br>
+                <span class='message-subject'>Re: {{item.name}}</span>
+            </div>
+            <textarea class='message-text' placeholder='message the seller'
+                      rows='5' cols='30' maxlength='250'></textarea>
+            <input class='message-submit-btn' type='submit' value='send'>
+        </div>
+    </section>
+    <section class='item-details-container'>
+        <div class='item-heading-container'>
+            <h3 class='item-heading'>{{item.name}}</h3>
+            <div class='line'></div>
+        </div>
+        <span class='item-price'>${{item.price}}</span>
+        <div class='category-container'>
+            {% with img_src='marketapp/images/'|add:item.category.name|add:'.jpg' %}
+                <img class='category-image'
+                    src={% static img_src %} alt='{{item.category.name}}'>
+            {% endwith %}
+            <span class='category-name'>category: {{item.category.name}}</span>
+        </div>
+        <div class='item-description-container'>
+            <p class='item-description'>{{item.description}}</p>
+            <div class='item-date'>
+                <span class='listed-span'>listed: </span>
+                {{item.list_date}}
+            </div>
+            <p class='seller-info'>
+                {% with seller=item.seller %}
+                    <span class='item-seller-name'>{{seller.name}}</span>
+                    has a 
+                    <span class='seller-success-rate success-{{seller.success_rate.color}}'>
+                        {{seller.success_rate.rate}}%
+                    </span>
+                    success rate, out of {{seller.total_transactions}} transactions
+                {% endwith %}
+            </p>
+        </div>
+    </section>
+{% endblock content %}

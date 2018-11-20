@@ -14,13 +14,19 @@ class User(models.Model):
 
     def full_location(self):
         return f"{self.city}, {self.state}"
+    
+    def total_transactions(self):
+        return self.items_sold + self.items_baught
   
     def success_rate(self):
         rate = 0
-        transactions = self.items_sold + self.items_baught
+        color = 'red'
+        transactions = self.total_transactions()
         if transactions > 0:
             rate = (self.success_count / transactions) * 100
-        return rate
+        if rate > 70:
+            color = 'green'
+        return {'rate': rate, 'color': color}
 
 class Category(models.Model):
     name = models.CharField(max_length=50)
@@ -39,6 +45,7 @@ class Item(models.Model):
     name   = models.CharField(max_length=100)
     price  = models.PositiveIntegerField(default=20)
     baught = models.BooleanField(default=False)
+    baught_date = models.DateTimeField(null=True)
     description = models.CharField(max_length=150)
     list_date   = models.DateTimeField()
 
